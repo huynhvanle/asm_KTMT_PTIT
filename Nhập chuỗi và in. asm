@@ -1,0 +1,36 @@
+.model small
+.stack 100
+.data
+   inp db "nhap chuoi: $"
+   outp db 13,10,"chuoi da nhap la: $"
+   str db 100 dup("$")
+.code
+main proc
+    mov ax, @data
+    mov ds, ax
+    
+    mov ah, 9
+    lea dx,inp
+    int 21h
+    
+    lea dx,str ; gan dia chi string
+    mov ah,10 ; nhap xau
+    int 21h
+    
+    mov ah,9
+    lea dx,outp
+    int 21h
+    
+    ; tai dia chi 1 str la so ki tu toi da dc nhap
+    ; tai dc 2 la so ki tu da nhap
+    ; tai dc 3 la ki tu dau tien cua str
+    
+    lea dx,str + 2 ; gan xau
+    int 21h
+    
+    mov ah,4ch
+    int 21h
+    
+    end main
+end
+    
