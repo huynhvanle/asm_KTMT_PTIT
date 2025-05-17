@@ -3,7 +3,7 @@
 .data
    inp db "nhap chuoi: $"
    outp db 13,10,"chuoi da nhap la: $"
-   str db 100 dup("$")
+   str db 100 dup("$") ; khoi tao chuoi ko co gia tri
 .code
 main proc
     mov ax, @data
